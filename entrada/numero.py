@@ -7,42 +7,41 @@ que permiten pedir entrada de números
 import sys
 
 
-MIN=0
-MAX=100
+MIN = 0
+MAX = 99
 
-
-def pedir_entrada_numero(invitacion):
+def pedir_numero(invitacion):
     """
-    Esta función verifica que se ha obtenido un número
+    Esta función se contenta con comprobar que se obtiene un número
     """
     while True:
         # Se entra en un bucle infinito
 
-        # Se pide la entrada de un número
+        # Se pide un número
         print(invitacion, end=": ")
         entrada = input()
 
         try:
             entrada = int(entrada)
         except:
-            print("Solo los caracteres [0-9] están autorizados.", file=sys.stderr)
+            print("Solo están autorizados los caracteres [0-9].", file=sys.stderr)
         else:
-            # Tenemos lo que queremos, salimos del bucle saliendo de la función
+            # Tenemos lo que queríamos, se sale del bucle saliendo de la función
             return entrada
 
-def pedir_entrada_numero_delimitado(invitacion, minimo=MIN, maximo=MAX):
+def pedir_numero_limite(invitacion, minimo=MIN, maximo=MAX):
     """
     Esta función utiliza la anterior y agrega una post-condición
-    sobre los extremos del número a introducir
+    sobre los límites del número a introducir
     """
     while True:
         # Se entra en un bucle infinito
 
-        # Se pide la entrada de un número
+        # Se pide un número
         invitacion = "{} entre {} y {} incluidos".format(invitacion, minimo, maximo)
-        entrada = pedir_entrada_numero(invitacion)
+        entrada = pedir_numero(invitacion)
 
         if minimo <= entrada <= maximo:
-            # Tenemos lo que queremos, salimos del bucle saliendo de la función
+            # Tenemos lo que queríamos, se sale del bucle saliendo de la función
             return entrada
 
